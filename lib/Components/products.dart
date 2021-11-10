@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_pakan/Pages/product_details.dart';
 
 class Products extends StatefulWidget {
   @override
@@ -9,22 +10,22 @@ class _ProductsState extends State<Products> {
   var product_list = [
     {
       "name": "Mangot",
-      "picture": "",
-      "price": "20000",
-    },
-    {
-      "name": "Mangot",
-      "picture": "",
+      "picture": "images/mangot2.jpg",
       "price": "20.000",
     },
     {
       "name": "Mangot",
-      "picture": "",
+      "picture": "images/mangot2.jpg",
       "price": "20.000",
     },
     {
       "name": "Mangot",
-      "picture": "",
+      "picture": "images/mangot2.jpg",
+      "price": "20.000",
+    },
+    {
+      "name": "Mangot",
+      "picture": "images/mangot2.jpg",
       "price": "20.000",
     }
   ];
@@ -62,7 +63,13 @@ class Single_prod extends StatelessWidget {
         tag: prod_name,
         child: Material(
           child: InkWell(
-            onTap: () {},
+            onTap: () => Navigator.of(context).push(new MaterialPageRoute(
+              builder: (context) =>ProductDetails(
+                product_detail_name: prod_name,
+                product_detail_picture: prod_picture,
+                product_detail_price: prod_price,
+                )
+              )),
             child: GridTile(
               footer: Container(
                 color: Colors.white70,

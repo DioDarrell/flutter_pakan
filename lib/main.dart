@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_pakan/Components/products.dart';
+import 'package:flutter_pakan/Pages/cart.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -19,10 +20,14 @@ class _HomePageState extends State<HomePage> {
       appBar: new AppBar(
         title: Text('PAKAN'),
         actions: <Widget>[
+          // new IconButton(
+          //     icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
           new IconButton(
-              icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
-          new IconButton(
-              icon: Icon(Icons.search, color: Colors.white), onPressed: () {}),
+              icon: Icon(Icons.add_shopping_cart, color: Colors.white),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Cart()));
+              }),
         ],
       ),
       body: Container(
@@ -40,6 +45,19 @@ class _HomePageState extends State<HomePage> {
                 child: new CircleAvatar(backgroundColor: Colors.grey),
               ),
             ),
+            //body drawer
+            InkWell(
+              onTap: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => new Cart()));
+              },
+              child: ListTile(
+                title: Text('Cart'),
+                leading: Icon(
+                  Icons.add_shopping_cart,
+                ),
+              ),
+            )
           ],
         ),
       ),
